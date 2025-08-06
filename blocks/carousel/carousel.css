@@ -1,4 +1,3 @@
-/* Stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -151,14 +150,10 @@
     --slide-content-width: auto;
   }
 }
-
-/* --- Ensure stacking and relative context --- */
 .carousel.carousel1 {
   position: relative;
   overflow: hidden;
 }
-
-/* --- CONTENT PANEL: stays lower, compact, no shadow --- */
 .carousel.carousel1 .carousel-slide .carousel-slide-content {
   position: absolute;
   left: 50%;
@@ -185,8 +180,6 @@
     min-width: 0;
   }
 }
-
-/* --- BUTTON --- */
 .carousel.carousel1 .carousel-slide .carousel-slide-content .button-container .button {
   background: #ffe600;
   color: #222;
@@ -200,10 +193,6 @@
   margin-top: 8px;
   box-shadow: none;
 }
-
-/* --- UNIFY CONTROLS: Dots and Arrows in a control bar under the panel --- */
-
-/* Re-position indicators to sit just beneath the content panel, centered horizontally */
 .carousel.carousel1 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -226,8 +215,6 @@
     gap: 0 10px;
   }
 }
-
-/* Dots style */
 .carousel.carousel1 .carousel-slide-indicator button {
   width: 12px;
   height: 12px;
@@ -243,12 +230,6 @@
 .carousel.carousel1 .carousel-slide-indicator button:disabled {
   background: #444;
 }
-
-/* --- NAVIGATION BUTTONS: Move to right of dots, same row --- */
-
-/* Use flexbox on a new container to align arrows to the right of dots, mimicking a control bar */
-
-/* Use a pseudo container via absolute positioning and flex for grouping both */
 .carousel.carousel1 .carousel-controls-bar {
   position: absolute;
   left: 50%;
@@ -269,8 +250,6 @@
     gap: 12px;
   }
 }
-
-/* Hide default nav buttons (top corners) */
 .carousel.carousel1 .carousel-navigation-buttons {
   position: static;
   display: flex;
@@ -331,10 +310,6 @@
   background: #ebebeb;
   cursor: default;
 }
-
-/* --- Grouping: visually combine dots and arrows in controls bar --- */
-
-/* Place both indicators and nav buttons in the control bar visually */
 .carousel.carousel1 .carousel-controls-bar {
   pointer-events: none;
 }
@@ -343,16 +318,173 @@
 .carousel.carousel1 .carousel-controls-bar > .carousel-navigation-buttons {
   pointer-events: auto;
 }
-
-/* --- Ensure .carousel-controls-bar overlays appropriately --- */
 .carousel.carousel1 .carousel-slides-container {
   position: relative;
 }
-
-/* --- Helper: Always keep arrows/dots hidden from top/bottom edge if controls bar exists --- */
 .carousel.carousel1 .carousel-navigation-buttons {
   top: unset;
   bottom: unset;
   left: unset;
   right: unset;
+}
+
+
+.carousel.carousel2 .carousel-slide {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 500px;
+  height: 100%;
+  margin: 0;
+  background: none;
+  box-sizing: border-box;
+}
+
+.carousel.carousel2 .carousel-slide-image {
+  flex: 2.8 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  height: auto;
+  z-index: 0;
+}
+
+.carousel.carousel2 .carousel-slide-image picture {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel.carousel2 .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 500px;
+  aspect-ratio: unset;
+}
+
+.carousel.carousel2 .carousel-slide-content {
+  flex: 1 1 0;
+  min-width: 285px;
+  max-width: 325px;
+  background: #f3f3f3;
+  color: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 34px 18px 34px 18px;
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: var(--body-font-family);
+  border-radius: 0;
+  border-left: none;
+  box-shadow: none;
+}
+
+.carousel.carousel2 .carousel-slide-content > p:first-child {
+  font-size: 1.07rem;
+  color: #181818;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-top: 44px;
+  margin-bottom: 26px;
+}
+
+.carousel.carousel2 .carousel-slide-content h2 {
+  color: #181818;
+  font-size: 2.92rem;
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 17px;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+}
+
+.carousel.carousel2 .carousel-slide-content > p:not(:first-child):not(.button-container) {
+  font-size: 1.13rem;
+  color: #181818;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.5;
+  max-width: 285px;
+}
+
+.carousel.carousel2 .carousel-slide-content .button-container {
+  margin-top: 56px;
+  margin-bottom: 0;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.carousel.carousel2 .carousel-slide-content .button {
+  background: #ffe000;
+  color: #181818;
+  border-radius: 0;
+  border: none;
+  font-family: var(--body-font-family);
+  font-size: 1.15rem;
+  font-weight: 900;
+  padding: 1.15em 0;
+  width: 100%;
+  min-width: 0;
+  letter-spacing: 0.03em;
+  box-shadow: none;
+  transition: background 0.2s;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+}
+
+.carousel.carousel2 .carousel-slide-content .button:hover,
+.carousel.carousel2 .carousel-slide-content .button:focus {
+  background: #fff568;
+  color: #181818;
+  text-decoration: none;
+}
+
+@media (min-width: 1500px) {
+  .carousel.carousel2 .carousel-slide-content {
+    max-width: 300px;
+    min-width: 260px;
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+}
+
+@media (max-width: 900px) {
+  .carousel.carousel2 .carousel-slide {
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+  }
+  .carousel.carousel2 .carousel-slide-image,
+  .carousel.carousel2 .carousel-slide-image picture,
+  .carousel.carousel2 .carousel-slide-image img {
+    min-height: 180px;
+    max-height: 40vw;
+    height: auto;
+  }
+  .carousel.carousel2 .carousel-slide-content {
+    max-width: none;
+    min-width: 0;
+    padding: 22px 6px 14px 6px;
+    height: auto;
+  }
+  .carousel.carousel2 .carousel-slide-content h2 {
+    font-size: 1.31rem;
+  }
+  .carousel.carousel2 .carousel-slide-content .button {
+    width: 100%;
+    min-width: 0;
+    padding: 1em 0;
+  }
 }
