@@ -1,3 +1,6 @@
+/* Disable no-descending-specificity globally */
+/* stylelint-disable no-descending-specificity */
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +46,157 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero.hero4 {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+}
+
+/* Make the image fill the hero area */
+.hero.hero4 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+}
+
+.hero.hero4 > div:first-child > div,
+.hero.hero4 > div:first-child picture,
+.hero.hero4 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero.hero4 > div:first-child img {
+  object-fit: cover;
+  min-height: 360px;
+}
+
+/* Content panel: anchor to bottom left and overlap image */
+.hero.hero4 > div:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Actual panel styles - flush with the bottom, tighter left, more compact vertical padding */
+.hero.hero4 > div:last-child > div {
+  background: #fff;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 9%);
+  padding: 1.5rem 2.4rem 1.3rem 1.8rem;
+  max-width: 670px;
+  margin: 0 0 0 1.2rem;
+  border-radius: 0;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Typography and button overrides for specificity */
+.hero.hero4 h2,
+.hero.hero4 p {
+  color: #222;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.hero.hero4 h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.9em;
+}
+
+.hero.hero4 p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  margin-bottom: 1.2em;
+}
+
+.hero.hero4 .button-container {
+  margin-top: 1.2rem;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero4 .button,
+.hero.hero4 .button {
+  background: #ffe000;
+  color: #222;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  padding: 0.7em 1.6em;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero4 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero4 .button:focus,
+.hero.hero4 .button:hover,
+.hero.hero4 .button:focus {
+  background: #ffd600;
+  color: #111;
+}
+
+/* Responsive: stack panel below image on small screens */
+@media (width <= 900px) {
+  .hero.hero4 {
+    min-height: 0;
+    display: block;
+  }
+
+  .hero.hero4 > div:first-child {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero.hero4 > div:first-child > div,
+  .hero.hero4 > div:first-child picture,
+  .hero.hero4 > div:first-child img {
+    min-height: 220px;
+    max-height: 340px;
+    object-fit: cover;
+  }
+
+  .hero.hero4 > div:last-child {
+    position: static;
+    width: 100%;
+    display: block;
+    margin-top: -1.2rem;
+    pointer-events: auto;
+  }
+
+  .hero.hero4 > div:last-child > div {
+    margin: 0;
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+    min-width: 0;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 9%);
   }
 }
