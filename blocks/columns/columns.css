@@ -48,8 +48,6 @@
   padding: 2px 0;
   gap: 0;
 }
-
-/* --- Logo --- */
 .columns.columns9 .columns-img-col {
   display: flex;
   align-items: center;
@@ -68,8 +66,6 @@
   padding: 0;
   align-self: center;
 }
-
-/* --- Navigation --- */
 .columns.columns9 > div > div:nth-child(2) {
   display: flex;
   align-items: center;
@@ -131,8 +127,6 @@
   margin-left: 0;
   padding-left: 0;
 }
-
-/* --- Search --- */
 .columns.columns9 > div > div:nth-child(3) {
   display: flex;
   align-items: center;
@@ -193,5 +187,211 @@
   .columns.columns9 > div > div:nth-child(2) ul,
   .columns.columns9 > div > div:nth-child(2) ul ul {
     gap: 20px;
+  }
+}
+
+
+.columns.columns11 {
+  background: #232221;
+  color: #fff;
+  padding: 32px 0 24px 0;
+  font-family: var(--body-font-family);
+}
+
+/* --- Wrapper: vertical stack, but top row is flex --- */
+.columns.columns11 .columns-3-cols {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* --- TOP ROW: logo, nav, social all horizontal, tightly grouped --- */
+.columns.columns11 .columns-3-cols > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+/* --- LOGO: left aligned, not oversized, no extra margin --- */
+.columns.columns11 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 120px;
+  max-width: 140px;
+  margin-right: 0;
+}
+.columns.columns11 .columns-img-col img {
+  width: 120px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- NAV: flatten to horizontal row, uppercase, white, no blue, no bullets --- */
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(2) {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding-left: 0;
+}
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(2) ul,
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(2) ul ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(2) li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(2) a {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color 0.15s;
+  padding: 3px 0;
+  white-space: nowrap;
+  /* override base link color */
+}
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(2) a:hover {
+  color: #bfbfbf;
+  text-decoration: underline;
+}
+.columns.columns11 ul,
+.columns.columns11 ul ul,
+.columns.columns11 ul ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- SOCIAL: horizontal, label and buttons inline, white circles, no blue --- */
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+  margin-left: 0;
+}
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(3) h4 {
+  margin: 0 8px 0 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-family: var(--body-font-family);
+  text-align: right;
+  display: inline-block;
+  min-width: 74px;
+}
+
+/* Social buttons: white, circle, inline, no blue, tight gap */
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(3) .button-container {
+  display: inline-block;
+  margin: 0 4px 0 0;
+  vertical-align: middle;
+}
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(3) .button {
+  background: #fff;
+  color: #232221;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50%;
+  min-width: 40px;
+  min-height: 40px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  text-transform: none;
+  transition: background 0.18s, color 0.18s;
+}
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(3) .button:hover,
+.columns.columns11 .columns-3-cols > div:first-child > div:nth-child(3) .button:focus {
+  background: #cccccc;
+  color: #232221;
+}
+
+/* --- FINE PRINT: full width, left-aligned below top row --- */
+.columns.columns11 .columns-3-cols > div:nth-child(2) {
+  width: 100%;
+  color: #cccccc;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 0;
+  min-width: 0;
+  padding: 0;
+  display: block;
+  text-align: left;
+}
+.columns.columns11 .columns-3-cols > div:nth-child(2) p {
+  margin: 0 0 12px 0;
+}
+.columns.columns11 .columns-3-cols > div:nth-child(2) a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.columns.columns11 .columns-3-cols > div:nth-child(2) a:hover {
+  color: #bfbfbf;
+}
+
+/* --- Responsive: stack everything on mobile --- */
+@media (max-width: 900px) {
+  .columns.columns11 .columns-3-cols {
+    padding: 0 16px;
+  }
+  .columns.columns11 .columns-3-cols > div:first-child {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+  .columns.columns11 .columns-img-col {
+    margin-bottom: 8px;
+    justify-content: flex-start;
+  }
+  .columns.columns11 .columns-img-col img {
+    width: 100px;
+  }
+  .columns.columns11 .columns-3-cols > div:first-child > div:nth-child(2) ul,
+  .columns.columns11 .columns-3-cols > div:first-child > div:nth-child(2) ul ul {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .columns.columns11 .columns-3-cols > div:first-child > div:nth-child(3) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-left: 0;
+  }
+  .columns.columns11 .columns-3-cols > div:first-child > div:nth-child(3) h4 {
+    margin-bottom: 6px;
+    text-align: left;
+  }
+  .columns.columns11 .columns-3-cols > div:nth-child(2) {
+    margin-top: 0;
+    font-size: 13px;
   }
 }
