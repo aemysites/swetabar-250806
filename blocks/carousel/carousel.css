@@ -1,3 +1,4 @@
+/* Stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -135,7 +135,7 @@
   left: calc(50% - 2px);
 }
 
-@media (width >= 600px) {
+@media (min-width: 600px) {
   .carousel .carousel-navigation-buttons {
     left: 24px;
     right: 24px;
@@ -150,4 +150,209 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+/* --- Ensure stacking and relative context --- */
+.carousel.carousel1 {
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- CONTENT PANEL: stays lower, compact, no shadow --- */
+.carousel.carousel1 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  left: 50%;
+  top: 68%;
+  transform: translate(-50%, 0);
+  max-width: 940px;
+  width: 80vw;
+  background: #fff;
+  color: #131313;
+  border-radius: 0;
+  padding: 28px 36px 22px;
+  margin: 0;
+  box-shadow: none;
+  z-index: 3;
+  min-width: 320px;
+}
+
+@media (max-width: 900px) {
+  .carousel.carousel1 .carousel-slide .carousel-slide-content {
+    top: 74%;
+    max-width: 98vw;
+    width: 98vw;
+    padding: 16px 8px 12px;
+    min-width: 0;
+  }
+}
+
+/* --- BUTTON --- */
+.carousel.carousel1 .carousel-slide .carousel-slide-content .button-container .button {
+  background: #ffe600;
+  color: #222;
+  border: none;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 1em;
+  text-transform: uppercase;
+  padding: 0.47em 1.3em;
+  letter-spacing: 0.01em;
+  margin-top: 8px;
+  box-shadow: none;
+}
+
+/* --- UNIFY CONTROLS: Dots and Arrows in a control bar under the panel --- */
+
+/* Re-position indicators to sit just beneath the content panel, centered horizontally */
+.carousel.carousel1 .carousel-slide-indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(68% + 175px);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0 14px;
+  background: none;
+  padding: 0;
+  margin: 0;
+  pointer-events: auto;
+  width: auto;
+}
+
+@media (max-width: 900px) {
+  .carousel.carousel1 .carousel-slide-indicators {
+    top: calc(74% + 92px);
+    gap: 0 10px;
+  }
+}
+
+/* Dots style */
+.carousel.carousel1 .carousel-slide-indicator button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d7d7d7;
+  border: none;
+  margin: 0 3px;
+  transition: background 0.2s;
+  box-shadow: none;
+  display: inline-block;
+}
+
+.carousel.carousel1 .carousel-slide-indicator button:disabled {
+  background: #444;
+}
+
+/* --- NAVIGATION BUTTONS: Move to right of dots, same row --- */
+
+/* Use flexbox on a new container to align arrows to the right of dots, mimicking a control bar */
+
+/* Use a pseudo container via absolute positioning and flex for grouping both */
+.carousel.carousel1 .carousel-controls-bar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(68% + 175px);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  gap: 22px;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .carousel.carousel1 .carousel-controls-bar {
+    top: calc(74% + 92px);
+    gap: 12px;
+  }
+}
+
+/* Hide default nav buttons (top corners) */
+.carousel.carousel1 .carousel-navigation-buttons {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.carousel.carousel1 .carousel-navigation-buttons button {
+  pointer-events: auto;
+  background: rgb(255 255 255 / 96%);
+  border: 1.3px solid #222;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  transition: border-color 0.2s, background 0.2s;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 7%);
+  position: relative;
+}
+
+.carousel.carousel1 .carousel-navigation-buttons button:hover,
+.carousel.carousel1 .carousel-navigation-buttons button:focus-visible {
+  border-color: #666;
+  background: #f7f7f7;
+}
+
+.carousel.carousel1 .carousel-navigation-buttons button::after {
+  display: none;
+}
+
+.carousel.carousel1 .carousel-navigation-buttons .slide-prev::before,
+.carousel.carousel1 .carousel-navigation-buttons .slide-next::before {
+  content: "";
+  display: block;
+  width: 0.8em;
+  height: 0.8em;
+  border-style: solid;
+  border-width: 0.17em 0.17em 0 0;
+  border-color: #222;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: none;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel.carousel1 .carousel-navigation-buttons .slide-next::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.carousel.carousel1 .carousel-navigation-buttons button:disabled {
+  opacity: 0.32;
+  border-color: #bbb;
+  background: #ebebeb;
+  cursor: default;
+}
+
+/* --- Grouping: visually combine dots and arrows in controls bar --- */
+
+/* Place both indicators and nav buttons in the control bar visually */
+.carousel.carousel1 .carousel-controls-bar {
+  pointer-events: none;
+}
+
+.carousel.carousel1 .carousel-controls-bar > .carousel-slide-indicators,
+.carousel.carousel1 .carousel-controls-bar > .carousel-navigation-buttons {
+  pointer-events: auto;
+}
+
+/* --- Ensure .carousel-controls-bar overlays appropriately --- */
+.carousel.carousel1 .carousel-slides-container {
+  position: relative;
+}
+
+/* --- Helper: Always keep arrows/dots hidden from top/bottom edge if controls bar exists --- */
+.carousel.carousel1 .carousel-navigation-buttons {
+  top: unset;
+  bottom: unset;
+  left: unset;
+  right: unset;
 }
