@@ -25,3 +25,144 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards3 {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  padding: 0 0 24px 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the cards block and row are visible and horizontally centered */
+.cards.cards3 > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* Card: fixed width, no border, side by side */
+.cards.cards3 > ul > li {
+  background: #fff;
+  border: none;
+  width: 250px;
+  min-width: 0;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  flex: 0 0 250px;
+  box-sizing: border-box;
+}
+
+/* Responsiveness for mobile */
+@media (max-width: 1100px) {
+  .cards.cards3 {
+    max-width: 98vw;
+    padding: 0 2vw 24px 2vw;
+  }
+  .cards.cards3 > ul {
+    gap: 14px;
+  }
+  .cards.cards3 > ul > li {
+    width: 45vw;
+    max-width: 340px;
+    flex: 1 1 170px;
+  }
+}
+@media (max-width: 700px) {
+  .cards.cards3 > ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cards.cards3 > ul > li {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+}
+
+/* Card image: square, no extra padding */
+.cards.cards3 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards3 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card body: tight, even padding; minimize bottom gap */
+.cards.cards3 .cards-card-body {
+  padding: 10px 12px 6px 12px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Remove extra margin on p's */
+.cards.cards3 .cards-card-body p {
+  margin: 0;
+}
+
+/* Card title: bold, uppercase, black, ellipsis, single line */
+.cards.cards3 .cards-card-body p:first-child {
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.18;
+  margin-bottom: 2px;
+}
+
+/* Card subtitle: gray, truncated, single line */
+.cards.cards3 .cards-card-body p:nth-child(2) {
+  font-size: 15px;
+  color: #7a7a7a;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.27;
+}
+
+/* Card "underline": yellow bar only under first card, flush and full width */
+.cards.cards3 > ul > li:first-child {
+  border-bottom: 4px solid #ffe600;
+}
+
+/* Remove any shadow/underline on other cards */
+.cards.cards3 > ul > li:not(:first-child) {
+  border-bottom: none;
+  box-shadow: none;
+}
